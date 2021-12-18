@@ -67,7 +67,7 @@ function! xolox#notes#init() " {{{1
       " Command line override.
       let g:notes_new_note_template = xolox#misc#path#absolute($VIM_NOTES_TEMPLATE)
     else
-      let g:notes_new_note_template = xolox#misc#path#merge(g:notes_shadowdir, 'New note')
+      let g:notes_new_note_template = xolox#misc#path#merge(g:notes_shadowdir, 'New-note')
     endif
   endif
   " Define the default location of the template for HTML conversion.
@@ -161,7 +161,7 @@ function! xolox#notes#edit(bang, title) abort " {{{1
       return
     endif
   else
-    let title = 'New note'
+    let title = 'New-note'
   endif
   " At this point we're dealing with a new note.
   let fname = xolox#notes#title_to_fname(title)
@@ -174,7 +174,7 @@ function! xolox#notes#edit(bang, title) abort " {{{1
     endif
     setlocal nomodified
   endif
-  if title != 'New note'
+  if title != 'New-note'
     call setline(1, title)
   endif
   call xolox#notes#set_filetype()
@@ -831,7 +831,7 @@ if !exists('s:cache_mtime')
   let s:cached_titles = []
   let s:cached_pairs = {}
   let s:cache_mtime = 0
-  let s:shadow_notes = ['New note', 'Note taking commands', 'Note taking syntax']
+  let s:shadow_notes = ['New-note', 'Note-taking-commands', 'Note-taking-syntax']
 endif
 
 function! xolox#notes#get_fnames(include_shadow_notes) " {{{3
